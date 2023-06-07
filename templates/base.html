@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+{% include 'head.html' %}
+
+<body style="font-family: 'NanumSquareR';">
+
+    {% include 'header.html' %}
+
+    <hr>
+
+    {% for message in messages %}
+
+    <div class="text-center">
+        <div class="btn btn-{{ message.tags }} rounded-pill px-5 my-3">
+            {{ message }}
+        </div>
+    </div>
+
+    {% endfor %}
+
+    {% block content %}
+    {% endblock %}
+
+    <hr>
+
+    {% include 'footer.html' %}
+
+</body>
+</html>

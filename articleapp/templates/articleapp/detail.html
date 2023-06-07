@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+  <div>
+    <div style="text-align: center; max-width: 700px; margin: 4rem auto;">
+
+      <h1>
+        {{ target_article.title }}
+      </h1>
+      <div style="height: 2rem;">
+        <a href="{% url 'likeapp:article_like' pk=target_article.pk %}">
+          <i style="vertical-align: middle; font-size: 1.2rem; color: #f77"
+             class="material-icons">
+            favorite
+          </i>
+        </a>
+        <span style="vertical-align: middle; font-size: 1.2rem;">
+          {{ target_article.like }}
+        </span>
+      </div>
+      <h5>
+        {{ target_article.writer.profile.nickname }}
+      </h5>
+      <hr>
+
+      <img style="width: 100%; border-radius: 1rem; margin: 2rem 0;"
+              src="{{ target_article.image.url }}" alt="">
+
+      <div class="text-left">
+        {{ target_article.content | safe }}
+      </div>
+
+      {% if target_article.writer == user %}
+      <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+      class="btn btn-primary rounded-pill col-3">
+        Update
+      </a>
+      <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
+      class="btn btn-danger rounded-pill col-3">
+        Delete
+      </a>
+      {% endif %}
+      <hr>
+
+      {% for comment in target_article.comment.all %}
+        {% include 'commentapp/detail.html' with comment=comment %}
+      {% endfor %}
+
+      {% include 'commentapp/create.html' with article=target_article %}
+
+    </div>
+  </div>
+
+{% endblock %}
