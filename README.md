@@ -9,3 +9,4 @@
 
 ### General Info
 📣 Lupin is a social networking service (SNS) web application that allows users to share images and communicate with friends like pinterest or instagram. This web application project built by HTML, CSS, and JavaScript for front-end, and used Django to web application framework.
+
