@@ -19,10 +19,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 from articleapp.views import ArticleListView
+# 추가
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', ArticleListView.as_view(), name='home'),
+    # 기존: path('', ArticleListView.as_view(), name='home'),
+    path('', TemplateView.as_view(template_name='temp.html'), name='home'),
 
+    # 아래 기존 라우트들은 그대로 두세요
     path('admin/', admin.site.urls),
     path('accounts/', include('accountapp.urls')),
     path('profiles/', include('profileapp.urls')),
@@ -31,5 +35,4 @@ urlpatterns = [
     path('projects/', include('projectapp.urls')),
     path('subscribe/', include('subscribeapp.urls')),
     path('likes/', include('likeapp.urls')),
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
