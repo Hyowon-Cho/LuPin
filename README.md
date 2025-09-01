@@ -1,6 +1,12 @@
-# LuPin Django Project
+# LuPin
 
 <p><img src="https://cdn.inflearn.com/public/files/courses/326338/95dc5b85-6520-47dd-bf4d-286d18aeb097/다운로드.png" width="269" height="269" alt="" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+
+---
+
+https://lu-pin-hyowon-cho.replit.app
+
+---
 
 
 ## General Info
